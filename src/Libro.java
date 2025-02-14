@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Libro{
     private String autor;
@@ -43,12 +45,14 @@ public class Libro{
     
     public Libro buscarPorCodigo(List<Libro> libros, String codigoBarras){
         for(int i=0;i<libros.size();i++){
-            if (libros.get(i).getCodigoBarras()==codigoBarras){
+            if (libros.get(i).getCodigoBarras().equals(codigoBarras)) {
+
                 return libros.get(i);
             }
         }
         return null;
     }
+
 
     public void mostrarTodos(List<Libro> libros){
         for (Libro libro : libros){
@@ -68,6 +72,15 @@ public class Libro{
             }
         }
         return librosEncontrados;
-
     }
+
+    public static Set<String> obtenerGenerosUnicos(List<Libro> libros) {
+        Set<String> generos = new HashSet<>();
+        for (Libro libro : libros) {
+            generos.add(libro.getGenero());
+        }
+        return generos;
+    }
+
+
 }
