@@ -67,7 +67,7 @@ public class Libro{
     public List<Libro> buscarporGenero (List<Libro> libros, String genero){
         List<Libro> librosEncontrados=new ArrayList<>();
         for(int i=0;i<libros.size();i++){
-            if (libros.get(i).getGenero()==genero){
+            if (libros.get(i).getGenero().equals(genero)) {
                 librosEncontrados.add(libros.get(i));
             }
         }
